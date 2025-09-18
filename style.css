@@ -32,7 +32,7 @@ header {
  
 .menu-Desktop nav ul li a:hover,
 .menu-Desktop nav ul li a.active {
-    color: #6c4cf7;
+    color: #5E3BEE;
 }
  
  
@@ -43,16 +43,40 @@ header {
     margin-right: 40px;
     margin-top: 3px;
     padding: 8px 18px;
-    border: 2px solid #6c4cf7;
+    border: 2px solid #5E3BEE;
     border-radius: 6px;
-    color: #6c4cf7;
+    color: #5E3BEE;
     text-decoration: none;
     font-weight: 500;
     transition: 0.3s;
 }
  
 .btn_contato:hover {
-    background: #6c4cf7;
+    background: #5E3BEE;
     color: #fff;
 }
  
+/* HOME */
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 40px;
+  gap: 40px;
+}
+
+.home-tex {
+    flex: 1;
+}
+
+.home-text h1 {
+    font-size: 2.5rem;
+    line-height: 1.3;
+    margin: 10px 0 20px;
+}
+
+.home-text h1 span {
+  color: #5E3BEE; /* destaque roxo */
+}
