@@ -1,0 +1,58 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+ 
+/* Header */
+header {
+    background-color: #fff;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 40px;
+    border-bottom: 1px solid #eee;
+}
+ 
+/* Estilo do nav */
+.menu-Desktop nav ul {
+    list-style: none;      
+    display: flex;        
+    gap: 30px;  
+}
+ 
+.menu-Desktop nav ul li a {
+    text-decoration: none;
+    color: #222;          
+    font-weight: 500;
+    transition: 0.3s;
+}
+ 
+.menu-Desktop nav ul li a:hover,
+.menu-Desktop nav ul li a.active {
+    color: #6c4cf7;
+}
+ 
+ 
+.btn_contato {
+    position: relative;
+    top: -54px;
+    float: right;
+    margin-right: 40px;
+    margin-top: 3px;
+    padding: 8px 18px;
+    border: 2px solid #6c4cf7;
+    border-radius: 6px;
+    color: #6c4cf7;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+ 
+.btn_contato:hover {
+    background: #6c4cf7;
+    color: #fff;
+}
+ 
