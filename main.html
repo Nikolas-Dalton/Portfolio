@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
     <title>Portfolio - Nikolas</title>
 </head>
 <body>
@@ -12,21 +11,17 @@
     <header class="header">
         <div class="container">
             <div class="logo">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#2D8659" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M2 17L12 22L22 17" stroke="#2D8659" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M2 12L12 17L22 12" stroke="#2D8659" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span>LogoIpsum</span>
+                <span>Portfolio</span>
             </div>
             <nav class="nav">
                 <ul>
                     <li><a href="#home" class="active">Home</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
                     <li><a href="#about">About me</a></li>
+                    <li><a href="#contact">Contact me</a></li>
                 </ul>
             </nav>
-            <a class="btn-contact" id="darkModeBtn">Dark Mode</a>
+            <button class="btn-contact" id="theme-switch">Dark Mode</button>
         </div>
     </header>
 
@@ -35,8 +30,8 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <p class="hero-greeting">Hey! I am John</p>
-                    <h1>Loren <span class="highlight">ipsum</span> dolor <span class="highlight">sit amet</span></h1>
+                    <p class="hero-greeting">Ola eu sou Nikolas</p>
+                    <h1>Seja <span class="highlight">bem vindo</span> ao <span class="highlight">Meu Site</span></h1>
                     <p class="hero-description">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                         Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, 
@@ -52,8 +47,8 @@
     <section class="expertise">
         <div class="container">
             <div class="section-header">
-                <p class="section-label">My Skills</p>
-                <h2 class="section-title">My Expertise</h2>
+                <p class="section-label">minhas skills</p>
+                <h2 class="section-title">Meus Conhecimentos</h2>
             </div>
             <div class="expertise-grid">
                 <div class="expertise-card">
@@ -72,7 +67,7 @@
                 </div>
                 <div class="expertise-card">
                     <div class="card-icon">
-                        <img src="img/database-svgrepo-com.svg" alt="MySQL">
+                        <img src="img/mysql-logo-svgrepo-com.svg" alt="MySQL">
                     </div>
                     <h3>MySQL</h3>
                     <p>Conhecimento em modelagem e manipulação de bancos de dados relacionais. Utilizo MySQL para criar, consultar e gerenciar dados de forma eficiente em aplicações web.</p>
@@ -104,8 +99,8 @@
                 <div class="about-text">
                     <p class="section-label">About</p>
                     <h2 class="section-title">About Me</h2>
-                    <p>Sou Nikolas Dalton, estudante do 6º termo de Ciência da Computação, nascido em São Paulo e morando em Marília. Tenho foco em desenvolvimento web e busco constantemente aprimorar minhas habilidades em tecnologias modernas e boas práticas de programação. Gosto de transformar ideias em soluções funcionais e bem estruturadas, sempre com dedicação e aprendizado contínuo.
-                    Nos meus momentos livres, gosto de ir à academia e tocar música, atividades que me ajudam a manter o foco e a criatividade em equilíbrio.</p>
+                    <p>Sou Nikolas Dalton, estudante do 6º termo de Ciência da Computação, nascido em São Paulo e residente em Marília. Tenho foco em desenvolvimento web e busco constantemente aprimorar minhas habilidades em tecnologias modernas e boas práticas de programação. Gosto de transformar ideias em soluções funcionais e bem estruturadas, sempre com dedicação e aprendizado contínuo.
+                    Nos meus momentos livres, gosto de ir à academia, desenhar e tocar instrumentos, atividades que me ajudam a manter o foco e a criatividade em equilíbrio.</p>
                 </div>
             </div>
         </div>
@@ -243,13 +238,10 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>Made with ❤️ by Webflow</p>
-                <div class="footer-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                </div>
-            </div>
+                <p>&copy; 2025 Nikolas Dalton. All rights reserved.</p>
         </div>
     </footer>
+
+    <script src="src/script.js"></script>
 </body>
 </html>
