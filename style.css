@@ -245,6 +245,56 @@ body {
   opacity: 0.3;
 }
 
+/* cursor herda o tamanho do h1 automaticamente */
+/* .hero-title .cursor {
+  display: inline-block;
+  font-weight: 700;
+  margin-left: 8px;
+  animation: blink 0.7s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+} */
+.typed-target {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+
+  /* impede o cursor de descer quando o texto ainda não existe */
+  min-height: 1em;
+  line-height: 1;
+  vertical-align: top;
+}
+
+.typed-target.no-cursor::after {
+  content: "" !important;
+  opacity: 0 !important;
+  animation: none !important;
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* cursor */
+.typed-target::after {
+  content: "|";
+  position: absolute;
+  right: -4px;
+  top: 0;
+  animation: blink 0.7s steps(1) infinite;
+  font-size: 1em;
+  line-height: 1;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
 /* Section Styles */
 .section-header {
   text-align: center;
