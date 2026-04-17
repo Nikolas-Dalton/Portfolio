@@ -151,10 +151,11 @@ body {
 
 .hero-content {
   display: flex;
+  flex-direction: column;  /* ← Empilha os itens verticalmente */
+  gap: 40px;
+  align-items: center;     /* ← Centraliza horizontalmente */
+  text-align: center;      /* ← Centraliza o texto */
   width: 100%;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
 }
 
 .hero-greeting {
@@ -786,5 +787,557 @@ body {
   .btn-contact {
     padding: 8px 16px;
     font-size: 14px;
+  }
+}
+
+/* ===== BOTÃO HAMBÚRGUER (Lateral Direita) ===== */
+.menu-toggle {
+  display: none; /* Escondido no desktop */
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1002; /* Fica acima de tudo */
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  transition: background 0.3s ease;
+}
+
+.menu-toggle:hover {
+  background: rgba(94, 59, 238, 0.1);
+}
+
+/* Barrinhas estilo imagem (grossas e arredondadas) */
+.menu-toggle .bar {
+  width: 24px;
+  height: 3px;
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transform-origin: center;
+}
+
+/* Animação ao abrir (transforma em X) */
+.menu-toggle.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+  background-color: var(--primary-color);
+}
+
+.menu-toggle.active .bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+  background-color: var(--primary-color);
+}
+
+/* ===== OVERLAY (Fundo escuro quando menu abre) ===== */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 1003;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.sidebar-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ===== SIDEBAR (Painel Lateral) ===== */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -320px; /* Escondido fora da tela */
+  width: 300px;
+  max-width: 85vw;
+  height: 100vh;
+  background-color: var(--white);
+  z-index: 1004;
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.15);
+  transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar.active {
+  right: 0; /* Mostra o menu */
+}
+
+/* Cabeçalho do Sidebar */
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-logo {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.sidebar-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--secondary-color);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: var(--text-dark);
+  transition: all 0.3s ease;
+}
+
+.sidebar-close:hover {
+  background: var(--primary-color);
+  color: var(--white);
+  transform: rotate(90deg);
+}
+
+.sidebar-close svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Links do Sidebar */
+.sidebar-nav {
+  padding: 16px 0;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+}
+
+.sidebar-nav ul li {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-nav ul li:last-child {
+  border-bottom: none;
+}
+
+.sidebar-nav ul li a {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 24px;
+  text-decoration: none;
+  color: var(--text-dark);
+  font-size: 18px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efeito hover nos links */
+.sidebar-nav ul li a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--primary-color);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+.sidebar-nav ul li a:hover {
+  background: var(--secondary-color);
+  color: var(--primary-color);
+  padding-left: 32px;
+}
+
+.sidebar-nav ul li a:hover::before {
+  transform: scaleY(1);
+}
+
+.sidebar-nav ul li a.active {
+  background: var(--secondary-color);
+  color: var(--primary-color);
+  padding-left: 32px;
+}
+
+.sidebar-nav ul li a.active::before {
+  transform: scaleY(1);
+}
+
+.nav-icon {
+  font-size: 22px;
+  width: 28px;
+  text-align: center;
+}
+
+/* ===== MOSTRAR HAMBÚRGUER NO MOBILE ===== */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+  
+  .nav {
+    display: none; /* Esconde o menu desktop */
+  }
+  
+  .header .container {
+    flex-wrap: nowrap;
+  }
+}
+
+/* Desktop: menu normal, sem sidebar */
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none !important;
+  }
+  
+  .sidebar-overlay {
+    display: none !important;
+  }
+  
+  .sidebar {
+    display: none !important;
+  }
+}
+
+/* ===== ANIMAÇÕES DE ENTRADA DOS LINKS ===== */
+.sidebar.active .sidebar-nav ul li {
+  animation: slideIn 0.4s ease forwards;
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+.sidebar.active .sidebar-nav ul li:nth-child(1) { animation-delay: 0.1s; }
+.sidebar.active .sidebar-nav ul li:nth-child(2) { animation-delay: 0.2s; }
+.sidebar.active .sidebar-nav ul li:nth-child(3) { animation-delay: 0.3s; }
+.sidebar.active .sidebar-nav ul li:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Previne scroll quando sidebar está aberto */
+body.sidebar-open {
+  overflow: hidden;
+}
+
+/* ========================================
+   📱 RESPONSIVIDADE MOBILE - ATUALIZADO
+   ======================================== */
+
+/* Tablet e menor (até 1024px) */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 32px;
+  }
+  
+  .hero-text h1 {
+    font-size: 48px;
+  }
+  
+  .section-title {
+    font-size: 40px;
+  }
+  
+  .expertise-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas em vez de 4 */
+    gap: 24px;
+  }
+  
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas em vez de 3 */
+    gap: 24px;
+  }
+}
+
+/* Mobile médio (até 768px) */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+  
+  /* Header */
+  .header .container {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  
+  .nav ul {
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .btn-contact {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+  
+  /* Hero Section */
+  .hero {
+    padding: 40px 0;
+    min-height: auto;
+    background-attachment: scroll; /* Evita bug de scroll no iOS */
+  }
+  
+  .hero-content {
+    flex-direction: column; /* Empilha no mobile */
+    text-align: center;
+    gap: 32px;
+  }
+  
+  .hero-greeting {
+    justify-content: center;
+  }
+  
+  .hero-text h1 {
+    font-size: 36px;
+    line-height: 1.3;
+  }
+  
+  .hero-description {
+    width: 100%; /* Remove largura fixa de 730px */
+    max-width: 100%;
+    font-size: 15px;
+  }
+  
+  /* Sections */
+  .section-title {
+    font-size: 32px;
+  }
+  
+  .section-header {
+    margin-bottom: 40px;
+  }
+  
+  /* About */
+  .about-content {
+    grid-template-columns: 1fr; /* Empilha imagem e texto */
+    gap: 40px;
+  }
+  
+  .about-image-wrapper {
+    max-width: 350px;
+    margin: 0 auto;
+  }
+  
+  .about-text {
+    padding-left: 0;
+    text-align: center;
+  }
+  
+  .about-text .section-label,
+  .about-text .section-title {
+    text-align: center;
+  }
+  
+  .purple-brush {
+    width: 200px;
+    height: 200px;
+    top: -20px;
+    right: -20px;
+  }
+  
+  /* ==========================================
+      EXPERTISE - CENTRALIZADO & ÍCONES MAIORES
+     ========================================== */
+  .expertise-grid {
+    grid-template-columns: 1fr; /* 1 coluna no mobile */
+    gap: 40px; /* Mais espaçamento entre cards */
+  }
+  
+  .expertise-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza ícone e texto */
+    text-align: center;  /* Alinha texto ao centro */
+    padding: 32px 20px;
+  }
+  
+  .card-icon {
+    width: 88px;   /* ✅ Ícone aumentado */
+    height: 88px;  /* ✅ Ícone aumentado */
+    margin-bottom: 24px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .card-icon img {
+    width: 52px;   /* ✅ Imagem interna maior */
+    height: 52px;
+    object-fit: contain;
+  }
+  
+  .expertise-card h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  
+  .expertise-card p {
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 100%;
+    color: var(--text-light);
+  }
+  /* ========================================== */
+  
+  /* Portfolio */
+  .portfolio-grid {
+    grid-template-columns: 1fr; /* 1 coluna no mobile */
+  }
+  
+  .portfolio-image {
+    height: 240px;
+  }
+  
+  /* Contact Form */
+  .form-row {
+    grid-template-columns: 1fr; /* Empilha inputs */
+  }
+  
+  .contact-form {
+    padding: 0 10px;
+  }
+  
+  /* Footer */
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 24px;
+  }
+  
+  .footer-nav ul {
+    justify-content: center;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+}
+
+/* Mobile pequeno (até 480px) */
+@media (max-width: 480px) {
+  .hero-text h1 {
+    font-size: 28px;
+  }
+  
+  .section-title {
+    font-size: 26px;
+  }
+  
+  .nav ul {
+    gap: 12px;
+    font-size: 14px;
+  }
+  
+  .portfolio-image {
+    height: 200px;
+  }
+  
+  .btn-contact,
+  .btn-submit {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  /* Ajuste fino para ícones em telas muito pequenas */
+  .card-icon {
+    width: 72px;
+    height: 72px;
+  }
+  
+  .card-icon img {
+    width: 44px;
+    height: 44px;
+  }
+  
+  /* Ajuste de toque para botões */
+  button, 
+  input, 
+  textarea, 
+  select,
+  a {
+    min-height: 44px; /* Área mínima de toque */
+  }
+}
+
+/* Utilitários responsivos (seguros para desktop) */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Previne quebra de layout com textos longos */
+h1, h2, h3, p {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* ==========================================
+   🚫 REMOVER BARRA NÃO-CLICÁVEL NO MOBILE
+   ========================================== */
+@media (max-width: 768px) {
+  /* 1. Desativa a scrollbar personalizada no mobile */
+  ::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+    display: none !important;
+  }
+  ::-webkit-scrollbar-track,
+  ::-webkit-scrollbar-thumb {
+    display: none !important;
+    background: transparent !important;
+    border: none !important;
+  }
+
+  /* 2. Bloqueia scroll horizontal acidental na raiz */
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+    position: relative;
+  }
+
+  /* 3. Garante que nenhuma seção ultrapasse a largura da tela */
+  .container, 
+  section, 
+  header, 
+  footer {
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+  }
+
+  /* 4. Remove qualquer pseudo-elemento ou borda que possa estar vazando */
+  .expertise-card::after,
+  .expertise-card::before,
+  .portfolio-card::after,
+  .portfolio-card::before {
+    display: none !important;
   }
 }
