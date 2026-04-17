@@ -38,9 +38,9 @@ app.post('/send', async (req, res) => {
 
     // ✅ Email formatado em HTML (mais bonito e profissional)
     const mailOptions = {
-      from: process.env.EMAIL_USER,
+      from: process.env.EMAIL_USER,// TODO: MUDAR O REMETENTE
       to: process.env.EMAIL_USER,
-      subject: `📬 Nova mensagem de ${fullName}`,
+      subject: `📬 ${fullName} enviou uma mensagem de(@${email})`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; color: #333;">
           <h2 style="color: #2D8659; border-bottom: 2px solid #2D8659; padding-bottom: 10px;">
