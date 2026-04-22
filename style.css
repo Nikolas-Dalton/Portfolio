@@ -1,3 +1,6 @@
+/* ==========================================
+   RESET & VARIÁVEIS GLOBAIS
+   ========================================== */
 * {
   padding: 0;
   margin: 0;
@@ -32,20 +35,6 @@
   --foter-text: #aaa;
 }
 
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: #131313;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #5e3bee;
-  border-radius: 10px;
-  border: 3px solid #131313;
-}
-
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
@@ -60,7 +49,9 @@ body {
   padding: 0 40px;
 }
 
-/* Header */
+/* ==========================================
+   HEADER - DESKTOP (BASE)
+   ========================================== */
 .header {
   background-color: var(--white);
   padding: 20px 0;
@@ -122,39 +113,28 @@ body {
   color: var(--primary-color);
 }
 
-/* Hero Section */
+/* ==========================================
+   HERO SECTION
+   ========================================== */
 .hero {
-  /* Fundo com imagem */
-  /* background-image: url("img/fundo.jpeg"); caminho da sua imagem */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed; /* 🔥 deixa o fundo estático */
-
-  /* Cor de fallback (caso a imagem não carregue) */
-  background-color: var(--secondary-color);
-
-  /* Layout */
-  padding: 80px 0;
-  min-height: 600px;
-  display: flex;
-  align-items: center;
-  justify-content: center; /* opcional: centraliza conteúdo */
-
+  background-attachment: fixed;
   background-color: var(--secondary-color);
   padding: 80px 0;
   min-height: 600px;
   display: flex;
   align-items: center;
-  /* opacity: 0.8; */
+  justify-content: center;
 }
 
 .hero-content {
   display: flex;
-  flex-direction: column;  /* ← Empilha os itens verticalmente */
+  flex-direction: column;
   gap: 40px;
-  align-items: center;     /* ← Centraliza horizontalmente */
-  text-align: center;      /* ← Centraliza o texto */
+  align-items: center;
+  text-align: center;
   width: 100%;
 }
 
@@ -181,105 +161,21 @@ body {
 .hero-description {
   font-size: 16px;
   width: 100%;
+  max-width: 730px;
   color: var(--text-light);
   line-height: 1.8;
-  width: 730px;
 }
 
-.hero-image {
-  position: relative;
-}
-
-.image-wrapper {
-  position: relative;
-  background-color: var(--white);
-  border-radius: 20px;
-  padding: 20px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-}
-
-.image-wrapper img {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  display: block;
-}
-
-.floating-shapes {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-.shape {
-  position: absolute;
-  background-color: var(--secondary-color);
-  border-radius: 50%;
-  opacity: 0.6;
-}
-
-.shape-1 {
-  width: 60px;
-  height: 60px;
-  top: -20px;
-  right: -20px;
-  background-color: var(--primary-color);
-  opacity: 0.2;
-}
-
-.shape-2 {
-  width: 40px;
-  height: 40px;
-  bottom: -10px;
-  left: -10px;
-}
-
-.shape-3 {
-  width: 30px;
-  height: 30px;
-  top: 50%;
-  right: -15px;
-  background-color: var(--primary-color);
-  opacity: 0.3;
-}
-
-/* cursor herda o tamanho do h1 automaticamente */
-/* .hero-title .cursor {
-  display: inline-block;
-  font-weight: 700;
-  margin-left: 8px;
-  animation: blink 0.7s steps(1) infinite;
-}
-
-@keyframes blink {
-  50% {
-    opacity: 0;
-  }
-} */
+/* Typed Effect */
 .typed-target {
   position: relative;
   display: inline-block;
   white-space: nowrap;
-
-  /* impede o cursor de descer quando o texto ainda não existe */
   min-height: 1em;
   line-height: 1;
   vertical-align: top;
 }
 
-.typed-target.no-cursor::after {
-  content: "" !important;
-  opacity: 0 !important;
-  animation: none !important;
-  display: none !important;
-  width: 0 !important;
-  height: 0 !important;
-}
-
-/* cursor */
 .typed-target::after {
   content: "|";
   position: absolute;
@@ -291,12 +187,12 @@ body {
 }
 
 @keyframes blink {
-  50% {
-    opacity: 0;
-  }
+  50% { opacity: 0; }
 }
 
-/* Section Styles */
+/* ==========================================
+   SECTION STYLES
+   ========================================== */
 .section-header {
   text-align: center;
   margin-bottom: 60px;
@@ -325,7 +221,9 @@ body {
   margin: 0 auto;
 }
 
-/* Expertise Section */
+/* ==========================================
+   EXPERTISE SECTION
+   ========================================== */
 .expertise {
   padding: 100px 0;
   background-color: var(--white);
@@ -380,7 +278,9 @@ body {
   line-height: 1.6;
 }
 
-/* About Section */
+/* ==========================================
+   ABOUT SECTION
+   ========================================== */
 .about {
   padding: 100px 0;
   background-color: var(--white);
@@ -413,11 +313,7 @@ body {
   right: -50px;
   width: 300px;
   height: 300px;
-  background: linear-gradient(
-    135deg,
-    var(--primary-color) 0%,
-    rgba(94, 59, 238, 0.5) 100%
-  );
+  background: linear-gradient(135deg, var(--primary-color) 0%, rgba(94, 59, 238, 0.5) 100%);
   border-radius: 50%;
   z-index: 1;
   opacity: 0.8;
@@ -427,12 +323,12 @@ body {
   padding-left: 20px;
 }
 
-.about-text .section-label {
+.about-text .section-label,
+.about-text .section-title {
   text-align: left;
 }
 
 .about-text .section-title {
-  text-align: left;
   margin-bottom: 24px;
 }
 
@@ -443,7 +339,9 @@ body {
   margin-bottom: 20px;
 }
 
-/* Portfolio Section */
+/* ==========================================
+   PORTFOLIO SECTION
+   ========================================== */
 .portfolio {
   padding: 100px 0;
   background-color: var(--portfolio);
@@ -536,7 +434,9 @@ body {
   font-size: 20px;
 }
 
-/* Contact Section */
+/* ==========================================
+   CONTACT SECTION
+   ========================================== */
 .contact {
   padding: 100px 0;
   background-color: var(--white);
@@ -569,7 +469,7 @@ body {
   font-family: inherit;
   transition: border-color 0.3s;
   background-color: var(--white);
-  color: #fff;
+  color: var(--text-dark);
 }
 
 .form-group input:focus,
@@ -606,7 +506,9 @@ body {
   box-shadow: 0 5px 15px rgba(94, 59, 238, 0.3);
 }
 
-/* Footer */
+/* ==========================================
+   FOOTER
+   ========================================== */
 .footer {
   background-color: var(--footer);
   color: var(--white);
@@ -682,117 +584,11 @@ body {
   font-size: 14px;
 }
 
-.footer-links {
-  display: flex;
-  gap: 30px;
-}
-
-.footer-links a {
-  color: rgba(255, 255, 255, 0.7);
-  text-decoration: none;
-  font-size: 14px;
-  transition: color 0.3s;
-}
-
-.footer-links a:hover {
-  color: var(--white);
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .hero-content,
-  .about-content {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .expertise-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .portfolio-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .hero-text h1 {
-    font-size: 42px;
-  }
-}
-
-@media (max-width: 768px) {
-  .container {
-    padding: 0 20px;
-  }
-
-  .header .container {
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-
-  .nav ul {
-    flex-wrap: wrap;
-    gap: 15px;
-  }
-
-  .hero {
-    padding: 60px 0;
-  }
-
-  .hero-text h1 {
-    font-size: 32px;
-  }
-
-  .section-title {
-    font-size: 36px;
-  }
-
-  .expertise-grid,
-  .portfolio-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .form-row {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-content {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .footer-nav ul {
-    justify-content: center;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-text h1 {
-    font-size: 28px;
-  }
-
-  .section-title {
-    font-size: 28px;
-  }
-
-  .nav ul {
-    gap: 10px;
-    font-size: 14px;
-  }
-
-  .btn-contact {
-    padding: 8px 16px;
-    font-size: 14px;
-  }
-}
-
-/* ===== BOTÃO HAMBÚRGUER (Lateral Direita) ===== */
+/* ==========================================
+   SIDEBAR MENU (MOBILE)
+   ========================================== */
 .menu-toggle {
-  display: none; /* Escondido no desktop */
+  display: none;
   flex-direction: column;
   justify-content: center;
   gap: 5px;
@@ -800,7 +596,7 @@ body {
   border: none;
   cursor: pointer;
   padding: 10px;
-  z-index: 1002; /* Fica acima de tudo */
+  z-index: 1002;
   width: 44px;
   height: 44px;
   border-radius: 12px;
@@ -811,7 +607,6 @@ body {
   background: rgba(94, 59, 238, 0.1);
 }
 
-/* Barrinhas estilo imagem (grossas e arredondadas) */
 .menu-toggle .bar {
   width: 24px;
   height: 3px;
@@ -821,10 +616,8 @@ body {
   transform-origin: center;
 }
 
-/* Animação ao abrir (transforma em X) */
 .menu-toggle.active .bar:nth-child(1) {
   transform: translateY(8px) rotate(45deg);
-  background-color: var(--primary-color);
 }
 
 .menu-toggle.active .bar:nth-child(2) {
@@ -834,10 +627,8 @@ body {
 
 .menu-toggle.active .bar:nth-child(3) {
   transform: translateY(-8px) rotate(-45deg);
-  background-color: var(--primary-color);
 }
 
-/* ===== OVERLAY (Fundo escuro quando menu abre) ===== */
 .sidebar-overlay {
   position: fixed;
   top: 0;
@@ -857,11 +648,10 @@ body {
   visibility: visible;
 }
 
-/* ===== SIDEBAR (Painel Lateral) ===== */
 .sidebar {
   position: fixed;
   top: 0;
-  right: -320px; /* Escondido fora da tela */
+  right: -320px;
   width: 300px;
   max-width: 85vw;
   height: 100vh;
@@ -875,10 +665,9 @@ body {
 }
 
 .sidebar.active {
-  right: 0; /* Mostra o menu */
+  right: 0;
 }
 
-/* Cabeçalho do Sidebar */
 .sidebar-header {
   display: flex;
   justify-content: space-between;
@@ -918,7 +707,6 @@ body {
   height: 20px;
 }
 
-/* Links do Sidebar */
 .sidebar-nav {
   padding: 16px 0;
 }
@@ -949,7 +737,6 @@ body {
   overflow: hidden;
 }
 
-/* Efeito hover nos links */
 .sidebar-nav ul li a::before {
   content: '';
   position: absolute;
@@ -962,22 +749,14 @@ body {
   transition: transform 0.3s ease;
 }
 
-.sidebar-nav ul li a:hover {
-  background: var(--secondary-color);
-  color: var(--primary-color);
-  padding-left: 32px;
-}
-
-.sidebar-nav ul li a:hover::before {
-  transform: scaleY(1);
-}
-
+.sidebar-nav ul li a:hover,
 .sidebar-nav ul li a.active {
   background: var(--secondary-color);
   color: var(--primary-color);
   padding-left: 32px;
 }
 
+.sidebar-nav ul li a:hover::before,
 .sidebar-nav ul li a.active::before {
   transform: scaleY(1);
 }
@@ -988,37 +767,6 @@ body {
   text-align: center;
 }
 
-/* ===== MOSTRAR HAMBÚRGUER NO MOBILE ===== */
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: flex;
-  }
-  
-  .nav {
-    display: none; /* Esconde o menu desktop */
-  }
-  
-  .header .container {
-    flex-wrap: nowrap;
-  }
-}
-
-/* Desktop: menu normal, sem sidebar */
-@media (min-width: 769px) {
-  .menu-toggle {
-    display: none !important;
-  }
-  
-  .sidebar-overlay {
-    display: none !important;
-  }
-  
-  .sidebar {
-    display: none !important;
-  }
-}
-
-/* ===== ANIMAÇÕES DE ENTRADA DOS LINKS ===== */
 .sidebar.active .sidebar-nav ul li {
   animation: slideIn 0.4s ease forwards;
   opacity: 0;
@@ -1037,16 +785,19 @@ body {
   }
 }
 
-/* Previne scroll quando sidebar está aberto */
-body.sidebar-open {
-  overflow: hidden;
+/* Bloqueia scroll quando sidebar está aberto */
+body.menu-open {
+  overflow: hidden !important;
+  position: fixed !important;
+  width: 100% !important;
+  top: var(--scroll-top, 0) !important;
 }
 
-/* ========================================
-   📱 RESPONSIVIDADE MOBILE - ATUALIZADO
-   ======================================== */
+/* ==========================================
+    RESPONSIVIDADE MOBILE
+   ========================================== */
 
-/* Tablet e menor (até 1024px) */
+/* Tablet (até 1024px) */
 @media (max-width: 1024px) {
   .container {
     padding: 0 32px;
@@ -1061,48 +812,71 @@ body.sidebar-open {
   }
   
   .expertise-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 colunas em vez de 4 */
+    grid-template-columns: repeat(2, 1fr);
     gap: 24px;
   }
   
   .portfolio-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 colunas em vez de 3 */
+    grid-template-columns: repeat(2, 1fr);
     gap: 24px;
+  }
+  
+  .about-content {
+    gap: 40px;
   }
 }
 
-/* Mobile médio (até 768px) */
+/* Mobile (até 768px) */
 @media (max-width: 768px) {
+  /* Header Fixo no Mobile */
+  .header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 9999 !important;
+    background-color: var(--white) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+    overflow: visible !important;
+    padding: 16px 0 !important;
+  }
+  
+  .header .container {
+    width: 100% !important;
+    max-width: 100vw !important;
+    padding: 0 16px !important;
+    margin: 0 !important;
+    flex-wrap: nowrap !important;
+  }
+  
+  /* Compensa o header fixo */
+  body {
+    padding-top: 70px !important;
+  }
+  
   .container {
     padding: 0 20px;
   }
   
-  /* Header */
-  .header .container {
-    flex-wrap: wrap;
-    gap: 12px;
+  /* Mostra menu hamburguer, esconde nav desktop */
+  .menu-toggle {
+    display: flex !important;
   }
   
-  .nav ul {
-    gap: 16px;
-    flex-wrap: wrap;
-    justify-content: center;
+  .nav {
+    display: none !important;
   }
   
-  .btn-contact {
-    padding: 8px 16px;
-    font-size: 14px;
-  }
-  
-  /* Hero Section */
+  /* Hero */
   .hero {
     padding: 40px 0;
     min-height: auto;
-    background-attachment: scroll; /* Evita bug de scroll no iOS */
+    background-attachment: scroll;
   }
   
   .hero-content {
-    flex-direction: column; /* Empilha no mobile */
+    flex-direction: column;
     text-align: center;
     gap: 32px;
   }
@@ -1117,7 +891,7 @@ body.sidebar-open {
   }
   
   .hero-description {
-    width: 100%; /* Remove largura fixa de 730px */
+    width: 100%;
     max-width: 100%;
     font-size: 15px;
   }
@@ -1133,7 +907,7 @@ body.sidebar-open {
   
   /* About */
   .about-content {
-    grid-template-columns: 1fr; /* Empilha imagem e texto */
+    grid-template-columns: 1fr;
     gap: 40px;
   }
   
@@ -1159,68 +933,141 @@ body.sidebar-open {
     right: -20px;
   }
   
-  /* ==========================================
-      EXPERTISE - CENTRALIZADO & ÍCONES MAIORES
-     ========================================== */
+  /* Expertise */
   .expertise-grid {
-    grid-template-columns: 1fr; /* 1 coluna no mobile */
-    gap: 40px; /* Mais espaçamento entre cards */
+    grid-template-columns: 1fr;
+    gap: 40px;
   }
   
   .expertise-card {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centraliza ícone e texto */
-    text-align: center;  /* Alinha texto ao centro */
+    align-items: center;
+    text-align: center;
     padding: 32px 20px;
   }
   
   .card-icon {
-    width: 88px;   /* ✅ Ícone aumentado */
-    height: 88px;  /* ✅ Ícone aumentado */
+    width: 88px;
+    height: 88px;
     margin-bottom: 24px;
     border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
   
   .card-icon img {
-    width: 52px;   /* ✅ Imagem interna maior */
+    width: 52px;
     height: 52px;
-    object-fit: contain;
   }
   
   .expertise-card h3 {
     font-size: 24px;
-    font-weight: 700;
     margin-bottom: 12px;
   }
   
   .expertise-card p {
     font-size: 15px;
-    line-height: 1.6;
     max-width: 100%;
-    color: var(--text-light);
   }
-  /* ========================================== */
   
   /* Portfolio */
+  .portfolio {
+    padding: 50px 0;
+  }
+  
   .portfolio-grid {
-    grid-template-columns: 1fr; /* 1 coluna no mobile */
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 0 4px;
+  }
+  
+  .portfolio-card {
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
   }
   
   .portfolio-image {
-    height: 240px;
+    height: 180px;
+    padding: 12px;
   }
   
-  /* Contact Form */
-  .form-row {
-    grid-template-columns: 1fr; /* Empilha inputs */
+  .portfolio-image img {
+    border-radius: 6px;
+  }
+  
+  .portfolio-card h3 {
+    margin: 14px 16px 6px;
+    font-size: 19px;
+  }
+  
+  .portfolio-card p {
+    margin: 0 16px 14px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  .portfolio-link {
+    margin: 0 16px 14px;
+    font-size: 14px;
+  }
+  
+  /* Contact */
+  .contact {
+    padding: 40px 0;
+  }
+  
+  .contact .section-header {
+    margin-bottom: 20px;
+    padding: 0 8px;
+  }
+  
+  .contact .section-title {
+    font-size: 26px;
+    margin-bottom: 6px;
+  }
+  
+  .contact .section-description {
+    font-size: 13px;
+    line-height: 1.4;
   }
   
   .contact-form {
-    padding: 0 10px;
+    padding: 0;
+    max-width: 100%;
+  }
+  
+  .form-row {
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  
+  .form-group {
+    margin-bottom: 8px;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 10px 12px;
+    font-size: 14px;
+    border-radius: 6px;
+    min-height: 44px;
+  }
+  
+  .form-group textarea {
+    min-height: 80px;
+    margin-bottom: 8px;
+  }
+  
+  .btn-submit {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 15px;
+    margin: 12px auto 0;
+    border-radius: 6px;
+  }
+  
+  .contact .container {
+    padding-bottom: 24px;
   }
   
   /* Footer */
@@ -1239,6 +1086,29 @@ body.sidebar-open {
     text-align: center;
     gap: 12px;
   }
+  
+  /* Esconde scrollbar visual */
+  ::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+    display: none !important;
+  }
+  ::-webkit-scrollbar-track,
+  ::-webkit-scrollbar-thumb {
+    display: none !important;
+    background: transparent !important;
+    border: none !important;
+  }
+  
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
+  
+  .container, section, footer {
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+  }
 }
 
 /* Mobile pequeno (até 480px) */
@@ -1251,11 +1121,6 @@ body.sidebar-open {
     font-size: 26px;
   }
   
-  .nav ul {
-    gap: 12px;
-    font-size: 14px;
-  }
-  
   .portfolio-image {
     height: 200px;
   }
@@ -1266,7 +1131,6 @@ body.sidebar-open {
     max-width: 100%;
   }
   
-  /* Ajuste fino para ícones em telas muito pequenas */
   .card-icon {
     width: 72px;
     height: 72px;
@@ -1277,67 +1141,69 @@ body.sidebar-open {
     height: 44px;
   }
   
-  /* Ajuste de toque para botões */
-  button, 
-  input, 
-  textarea, 
-  select,
-  a {
-    min-height: 44px; /* Área mínima de toque */
+  button, input, textarea, select, a {
+    min-height: 44px;
+  }
+  
+  /* Ajustes finos do formulário */
+  .contact {
+    padding: 24px 0;
+  }
+  
+  .contact .section-title {
+    font-size: 22px;
+  }
+  
+  .form-row {
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+  
+  .form-group {
+    margin-bottom: 6px;
+  }
+  
+  .form-group input,
+  .form-group select {
+    padding: 9px 10px;
+    min-height: 42px;
+    font-size: 14px;
+  }
+  
+  .form-group textarea {
+    min-height: 70px;
+    padding: 9px 10px;
+    margin-bottom: 6px;
+  }
+  
+  .btn-submit {
+    padding: 11px 16px;
+    font-size: 14px;
+    margin-top: 8px;
+  }
+  
+  .contact .container {
+    padding-bottom: 16px;
   }
 }
 
-/* Utilitários responsivos (seguros para desktop) */
+/* Desktop: esconde sidebar e mostra menu normal */
+@media (min-width: 769px) {
+  .menu-toggle,
+  .sidebar-overlay,
+  .sidebar {
+    display: none !important;
+  }
+}
+
+/* Utilitários */
 img {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-/* Previne quebra de layout com textos longos */
 h1, h2, h3, p {
   overflow-wrap: break-word;
   word-wrap: break-word;
-}
-
-/* ==========================================
-   🚫 REMOVER BARRA NÃO-CLICÁVEL NO MOBILE
-   ========================================== */
-@media (max-width: 768px) {
-  /* 1. Desativa a scrollbar personalizada no mobile */
-  ::-webkit-scrollbar {
-    width: 0 !important;
-    height: 0 !important;
-    display: none !important;
-  }
-  ::-webkit-scrollbar-track,
-  ::-webkit-scrollbar-thumb {
-    display: none !important;
-    background: transparent !important;
-    border: none !important;
-  }
-
-  /* 2. Bloqueia scroll horizontal acidental na raiz */
-  html, body {
-    overflow-x: hidden !important;
-    max-width: 100vw !important;
-    position: relative;
-  }
-
-  /* 3. Garante que nenhuma seção ultrapasse a largura da tela */
-  .container, 
-  section, 
-  header, 
-  footer {
-    overflow-x: hidden !important;
-    max-width: 100% !important;
-  }
-
-  /* 4. Remove qualquer pseudo-elemento ou borda que possa estar vazando */
-  .expertise-card::after,
-  .expertise-card::before,
-  .portfolio-card::after,
-  .portfolio-card::before {
-    display: none !important;
-  }
 }
